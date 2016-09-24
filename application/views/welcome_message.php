@@ -55,24 +55,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<a class="link" href=<?php echo site_url().'/welcome/show'?>>查看榜单</a>
      </div>
      <script>
-     		/*
-     		var form = document.getElementsByTagName('form');
-     		form[0].addEventListener('submit',function(e){
-     			var timeHour = new Date().getHours();
-     			if(timeHour < 5 || timeHour >= 7 ){
-     				e.preventDefault(e);
-     				alert("5点之前，7点之后不能签到偶！");
-     			}
-     		});
-     		*/
      		var num = document.getElementById('num');
-     		num.addEventListener('focus',function(e){
-     			var timeHour = new Date().getHours();
-     			if(timeHour < 5 || timeHour >= 7 ){
-     				alert("5点之前，7点之后不能签到偶！");
-     				this.blur();
-     			}
+     		var username = document.getElementById('username');
+
+     		num.addEventListener('change',function(){
+     				window.localStorage.setItem('num',num.value);
      		});
+
+     		username.addEventListener('change',function(){
+     				window.localStorage.setItem('username',username.value);
+     		});
+     		
+     		num.value = window.localStorage.getItem('num');
+     		username.value = window.localStorage.getItem('username');
+
+     		
+     		// var form = document.getElementsByTagName('form');
+     		// form[0].addEventListener('submit',function(e){
+     		// 	var timeHour = new Date().getHours();
+     		// 	if(timeHour < 5 || timeHour >= 7 ){
+     		// 		e.preventDefault(e);
+     		// 		alert("5点之前，7点之后不能签到偶！");
+     		// 	}
+     		// });
+     		
+     		// num.addEventListener('focus',function(e){
+     		// 	var timeHour = new Date().getHours();
+     		// 	if(timeHour < 5 || timeHour >= 7 ){
+     		// 		alert("5点之前，7点之后不能签到偶！");
+     		// 		this.blur();
+     		// 	}
+     		// });
+     		
      </script>
 </body>
 </html>
