@@ -1,0 +1,30 @@
+{
+  "name": "sign",
+  "version": "1.0.0",
+  "description": "早睡早起GoodLife",
+  "main": "app.js",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Youthink/SDUTLove.git"
+  },
+  "author": "Youthink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Youthink/SDUTLove/issues"
+  },
+  "homepage": "https://github.com/Youthink/SDUTLove#readme",
+  "dependencies": {
+    "koa": "^2.0.0",
+    "koa-router": "^7.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.6",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-3": "^6.17.0"
+  }
+}i
