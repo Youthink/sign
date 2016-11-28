@@ -1,9 +1,8 @@
-require("babel-core/register")(
-    {
-        presets: ['stage-3','es2015']
-    }
-);
+#!/usr/local/bin/babel-node
 
-require("babel-polyfill");
+import app from './app';
 
-require("./app.js");
+const PORT = 3000;
+
+app.listen(PORT);
+console.log(`listening on port ${PORT}`);
