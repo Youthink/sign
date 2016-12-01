@@ -2,10 +2,10 @@ import Router from 'koa-router';
 
 const router = new Router();
 
-import  indexController  from './controllers/index';
+import  signController  from './controllers/sign';
 
 router.get('/', async (ctx, next) => {
-  await ctx.render('index',indexController);
+  await ctx.render('sign',signController);
 });
 
 router.get('/rank', async (ctx, next) => {
