@@ -69,15 +69,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      		num.value = window.localStorage.getItem('num');
      		username.value = window.localStorage.getItem('username');
 
-     		
-     		// var form = document.getElementsByTagName('form');
-     		// form[0].addEventListener('submit',function(e){
-     		// 	var timeHour = new Date().getHours();
-     		// 	if(timeHour < 5 || timeHour >= 7 ){
-     		// 		e.preventDefault(e);
-     		// 		alert("5点之前，7点之后不能签到偶！");
-     		// 	}
-     		// });
+     		var form = document.getElementsByTagName('form');
+     		form[0].addEventListener('submit',function(e){
+     			var timeHour = new Date().getHours();
+     			var timeMinute = new Date().getMinutes(); 
+     			if(timeHour < 4 || timeHour >= 10 ){
+     				e.preventDefault(e);
+     				alert("4点之前，10点之后不能签到偶！");
+     			}
+     		});
      		
      		// num.addEventListener('focus',function(e){
      		// 	var timeHour = new Date().getHours();

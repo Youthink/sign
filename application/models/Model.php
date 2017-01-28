@@ -37,9 +37,13 @@ class Model extends CI_Model
               /*$this->db->order_by('date')
                    ->where('date',date('Y-m-d'));
               $query = $this->db->get('sign');*/
-
+              $date = $this->input->post('date');
+              if($date ==''){
+                $date = date("Y-m-d");
+              }
               $sql = "select *,count(distinct num) from sign where date = ? group by num order by time";
-              $query = $this->db->query($sql,array(date("Y-m-d")));
+
+              $query = $this->db->query($sql, array($date));
               return $query->result_array();
         }else{
         

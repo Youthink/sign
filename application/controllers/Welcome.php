@@ -29,7 +29,7 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('index');
 	}
 
 	public function sign()
@@ -49,6 +49,11 @@ class Welcome extends CI_Controller {
     }
 	public function show($page = 'rank')
 	    {
+	    	$date = $this->input->post('date');
+	    	if($date ==''){
+	    		$date = date("Y-m-d");
+	    	}
+            $data['date'] = $date;
 	        $data['rank'] = $this->model->get_rank($key=NULL);
 	        $data['rank_items'] = $this->model->get_rank($key);
 	        if (!file_exists(APPPATH.'/views/rank.php'))

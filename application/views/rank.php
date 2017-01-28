@@ -24,33 +24,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
      <div class="container">
-     <h2><?php echo date('Y-m-d')?></h2>
+     <h2><?php echo $date; ?></h2>
 	 <div class="col-md-offset-3 col-md-6">
-		<p></p>
-			<h3 class="blue">早起排名</h3>
-			<div class="table-responsive">
-				<table  class="table table-striped table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>排名</th>
-							<th>编号</th>
-							<th>昵称</th>
-							<th>签到时间</th>
-							<th>是否确认</th>
-						</tr>
-					</thead><?php $i=1;?>
-					<tbody> <?php foreach ($rank as $rank_items): ?>
-						<tr>
-						<td class="warning"><?php echo $i++;?></td>
-						<td class="danger"><?php echo $rank_items['num']; ?></td>
-						<td class="success"><?php echo $rank_items['username']; ?></td>
-						<td class="warning"><?php echo $rank_items['time']; ?></td>
-						<td class="danger">已确认</td>
-						</tr><?php endforeach; ?>
-					</tbody>
-				</table>
-			</div>
-        </div>
+	 <?php echo form_open('welcome/show'); ?>
+		<p>
+		查看：<input type="date" name="date" value='<?php echo $date; ?>'>
+		<button class="btn btn-success">排名</button>
+		</p>
+		<h3 class="blue">早起排名</h3>
+		<div class="table-responsive">
+			<table  class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>排名</th>
+						<th>编号</th>
+						<th>昵称</th>
+						<th>签到时间</th>
+					</tr>
+				</thead><?php $i=1;?>
+				<tbody> <?php foreach ($rank as $rank_items): ?>
+					<tr>
+					<td class="warning"><?php echo $i++;?></td>
+					<td class="danger"><?php echo $rank_items['num']; ?></td>
+					<td class="success"><?php echo $rank_items['username']; ?></td>
+					<td class="warning"><?php echo $rank_items['time']; ?></td>
+					</tr><?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+    </div>
      </div>
 </body>
 </html>
