@@ -12,6 +12,8 @@ class Model extends CI_Model
     {
       
       $num = $this->input->post('num');
+      $sleeptime = $this->input->post('sleeptime');
+      
       $sql = "select * from sign where num =? and date = ?";
       $query = $this->db->query($sql,array($num,date("Y-m-d")))
                     ->result_array();
@@ -21,9 +23,13 @@ class Model extends CI_Model
 
             'username' => $this->input->post('username'),
             'num' => $num,
+            'sleeptime' => $sleeptime
         );
+
+        $wakeUpTime = date("H:i");
+
         $this->db->set('date',date("Y-m-d"));
-        $this->db->set('time',date("H:i:s"));
+        $this->db->set('wakeUpTime',$wakeUpTime);
         return $this->db->insert('sign', $data);
 
       }
@@ -41,7 +47,7 @@ class Model extends CI_Model
               if($date ==''){
                 $date = date("Y-m-d");
               }
-              $sql = "select *,count(distinct num) from sign where date = ? group by num order by time";
+              $sql = "select *,count(distinct num) from sign where date = ? group by num order by wakeUpTime";
 
               $query = $this->db->query($sql, array($date));
               return $query->result_array();

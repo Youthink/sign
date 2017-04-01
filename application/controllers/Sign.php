@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Sign extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -44,7 +44,7 @@ class Welcome extends CI_Controller {
             $this->load->view('welcome_message');
         }else{
             $this->model->M_addsign();
-            redirect(site_url().'/welcome/show');
+            redirect(site_url().'/sign/show');
         }
     }
 	public function show($page = 'rank')

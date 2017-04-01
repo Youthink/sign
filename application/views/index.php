@@ -33,11 +33,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      <h2>美好生活，从早起开始</h2>
 	     <div class="form-horizontal" role="form">
 	     <?php echo validation_errors(); ?>
-	     <?php echo form_open('welcome/sign'); ?>
+	     <?php echo form_open('sign/sign'); ?>
 			  <div class="form-group">
 			    <label for="num" class="col-xs-3 control-label">编号</label>
 			    <div class="col-xs-9">
-			      <input type="number" class="form-control" name="num" id="num" placeholder="数字1~30" required min="1" max="30" />
+			      <input type="number" class="form-control" name="num" id="num" placeholder="数字1~35" required min="1" max="35" />
 			    </div>
 			  </div>
 			  <div class="form-group">
@@ -47,12 +47,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			    </div>
 			  </div>
 			  <div class="form-group">
+			    <label for="sleeptime" class="col-xs-3 control-label">晚安</label>
+			    <div class="col-xs-9">
+			      <input type="time" class="form-control" name="sleeptime" id="sleeptime">
+			    </div>
+			  </div>
+			  <div class="form-group">
 			    <div class="col-xs-12">
 			      <button type="submit" class="btn btn-lg btn-success col-xs-12">签到</button>
 			    </div>
 			  </div>
 		</div>
-		<a class="link" href=<?php echo site_url().'/welcome/show'?>>查看榜单</a>
+		<a class="link" href=<?php echo site_url().'/sign/show'?>>查看榜单</a>
      </div>
      <script>
      		var num = document.getElementById('num');
@@ -73,9 +79,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      		form[0].addEventListener('submit',function(e){
      			var timeHour = new Date().getHours();
      			var timeMinute = new Date().getMinutes(); 
-     			if(timeHour < 4 || timeHour >= 10 ){
+     			if(timeHour < 4 || timeHour >= 8 ){
      				e.preventDefault(e);
-     				alert("4点之前，10点之后不能签到偶！");
+     				alert("4点之前，8点之后不能签到偶！");
      			}
      		});
      		
